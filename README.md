@@ -6,192 +6,247 @@
 
 ---
 
+<a id="english"></a>
+
 # English
 
 ## Overview
 
-AI Delivery Agent is a decision-support prototype built around a synthetic portfolio of 8 technology projects.
+AI Delivery Agent is a prototype designed to support portfolio-level project delivery analysis and management decision-making.
 
-The goal was not simply to answer **“Which project is at risk?”** but to help evaluate the questions that come next:
+The objective is not simply to identify which projects are at risk. The Agent is designed to help answer questions such as:
 
-- Why is the project at risk?
-- What is the root cause?
-- Which other projects could be affected by a dependency?
-- Is the problem actually caused by insufficient resources?
-- If another suitable resource is available, could reallocating that person create risk elsewhere?
-- What do budget, ROI, CAPEX, OPEX, and KPIs indicate?
-- Where should management attention be focused at a given point in time?
+- Why is a project at risk?
+- What is the possible root cause?
+- Which other projects may be affected by a dependency?
+- Is the issue actually related to resource capacity?
+- If another resource is available, could reallocation create risk in another project?
+- What do budget, ROI, and KPI data indicate?
+- Where should management attention be focused based on the available data?
 
-The result is an AI Delivery Agent designed to bring these questions into a single decision-support flow.
-
-> **The agent recommends. The manager decides.**
+The Agent combines structured project data with information extracted from project documentation to create a portfolio-level management view.
 
 ---
 
-## Data Sources
+## Prototype Data Sources
 
-The prototype combines synthetic data representing common enterprise systems and information sources:
+The prototype simulates an enterprise project portfolio using synthetic data.
 
-**Jira-style data**
-- Issues, blockers, dependencies
-- Assignees, effort, milestones
+The analysis uses:
 
-**Confluence-style project documents**
-- Objective
-- Scope
-- Risk
-- Decision
+- **Jira-style data** — issues, blockers, dependencies, assignees, effort, milestones
+- **Confluence-style project documentation** — Objective, Scope, Risk, Decision
+- **Financial data** — Expected ROI, CAPEX, OPEX, approved budget, actual cost
+- **Resource data** — skills, allocation, capacity
+- **KPI data** — target and current values
 
-**Financial data**
-- ROI, CAPEX, OPEX
-- Budget and actual cost
+In a real enterprise environment, the same design could be extended through authorized APIs and integrations with enterprise systems.
 
-**Resource / People data**
-- Skills
-- Allocation
-- Capacity
-
-**KPI data**
-- Target and actual values
-
-All data in this repository is synthetic. No real company or personal data is used.
+No live enterprise integrations are implemented in this prototype.
 
 ---
 
 ## Structured + Unstructured Information
 
-Confluence-style information was not provided to the agent as pre-structured columns.
+The Confluence-style project information was not provided to the Agent as pre-structured columns.
 
-The agent reads the project documents and extracts information such as **Objective, Scope, Risk, and Decision**, then evaluates it together with structured project, Jira, financial, resource, and KPI data.
+The Agent works with project documents and extracts relevant information such as:
 
-This allows structured data and unstructured project documentation to contribute to the same portfolio analysis.
+- Objective
+- Scope
+- Risk
+- Decision
+
+This allows structured portfolio data and unstructured project documentation to be considered within the same analysis.
 
 ---
 
 ## Decision Flow
 
+The Agent follows the decision-support flow:
+
 **Risk Detection → Root Cause Analysis → Resource Optimization → Recommendation → Human Approval**
 
-### Risk Detection
+A project delay is not automatically treated as a resource problem.
 
-The agent evaluates indicators including project progress, deadlines, blockers, blocker age, dependencies, effort, financial information, and KPI performance.
+The analysis considers blockers, dependencies, effort, resource/capacity information, financial data, KPI information, and other available delivery signals before producing a conclusion.
 
-### Root Cause Analysis
+When a resource-related issue is supported by the available data, alternative resources can be evaluated based on:
 
-A delayed project is not automatically treated as a resource problem.
+- Skill compatibility
+- Capacity
+- Current assignments
+- Project priorities
+- Dependency impact
+- Potential impact on other projects
 
-The agent evaluates blockers, dependencies, and other available evidence to determine the likely cause of the risk.
+If the available data does not support a safe alternative, the Agent should state this rather than inventing one.
 
-### Dependency Impact
+---
 
-When a dependency contributes to a risk, the analysis considers which other projects may also be affected.
+## Delivery Risk Analysis
 
-This extends the analysis from an individual project view to a portfolio-level view.
+The current decision policy evaluates delivery risk across seven dimensions:
 
-### Resource Optimization
+1. Schedule
+2. Blocker
+3. Effort
+4. Dependency
+5. Resource / Capacity
+6. Financial Delivery Risk
+7. KPI / Outcome Risk
 
-If the evidence indicates a resource-related problem, the agent evaluates alternatives based on:
+A single metric does not automatically determine the overall risk.
 
-- Required skills
-- Available capacity
-- Current allocation
-- Existing project responsibilities
+For example, the existence of a blocker, dependency, approaching deadline, high budget utilization, or KPI gap is not treated as sufficient evidence on its own.
 
-It also considers whether moving a resource could create additional risk in another project.
+The Agent is designed to evaluate multiple supporting signals and avoid creating artificial risk simply to produce a result.
 
-If there is no suitable alternative, the agent should state this instead of forcing a recommendation.
+---
 
-### Recommendation & Human Approval
+## Root Cause Analysis
 
-The agent uses the available project, dependency, resource, financial, and KPI context to generate a recommendation.
+Risk detection and root cause analysis are treated as separate steps.
 
-Critical actions such as resource changes, project priorities, or delivery date changes are not applied without human approval.
+The Agent does not automatically attribute a delivery problem to developer performance or resource capacity.
+
+Possible root-cause categories include:
+
+- Resource / Capacity
+- Technical / System
+- Dependency
+- Access / Infrastructure
+- Requirement / Scope
+- External / Vendor
+- UNKNOWN
+
+When the available evidence is insufficient, the Agent uses a **Root Cause Candidate** or **UNKNOWN** rather than presenting an unsupported conclusion as fact.
 
 ---
 
 ## Grounding & Traceability
 
-During testing, I identified a case where an agent-generated result did not match the underlying source data.
+During testing, an output was identified that did not match the underlying source data.
 
-As a result, grounding and traceability became an explicit part of the design.
+This led to grounding and traceability becoming an explicit part of the Agent design.
 
-Agent outputs are separated into four categories:
+The analysis distinguishes between:
 
 - **FACT** — directly supported by source data
-- **CALCULATED** — derived from available data
-- **INFERENCE** — interpretation based on available evidence
-- **UNKNOWN** — cannot be reliably determined from the available data
+- **CALCULATED** — derived from source data using a repeatable calculation
+- **INFERENCE** — a logical conclusion based on available facts and/or calculations
+- **UNKNOWN** — required information is missing or insufficient
 
-This makes it clearer what the agent knows, what it calculates, where it makes an inference, and where the available evidence is insufficient.
+The Agent is instructed not to invent missing data, unsupported thresholds, people, dates, system information, or conclusions.
+
+This makes it possible to distinguish what the Agent knows, what it calculates, what it infers, and where the available data is insufficient.
 
 ---
 
 ## Human-in-the-Loop
 
-The prototype is designed as a decision-support system, not an autonomous decision-maker.
+A core design principle is:
 
-**Agent recommends → Human reviews → Human approves or rejects**
+**The Agent recommends. The manager decides.**
 
-Resource allocation, priority, and delivery date decisions remain under human control.
+The Agent can:
+
+- Analyze project data
+- Detect and explain risks
+- Investigate possible root causes
+- Evaluate available evidence
+- Suggest possible actions
+
+Critical actions are not intended to be applied without explicit human approval.
+
+These include:
+
+- Resource reassignment
+- Deadline or milestone changes
+- Scope changes
+- Priority changes
+- Risk acceptance or closure
+- Changes to source-system data
+
+The separation between recommendation and execution is part of the governance model.
+
+---
+
+## Agent Policy & Governance
+
+The Agent's decision behavior is defined through a persistent policy layer rather than a standalone hard-coded risk script.
+
+### `agent_policy/SKILL.md`
+
+Defines the Agent's operating rules, including:
+
+- Delivery risk evaluation
+- Grounding requirements
+- Root cause behavior
+- Resource/capacity analysis
+- Management reporting rules
+- Human Approval controls
+- Output and reporting behavior
+
+### `agent_policy/references/karar-politikasi-v1.md`
+
+Contains the detailed decision policy used by the Agent for portfolio delivery analysis.
+
+The policy was iteratively refined during development to reduce unsupported assumptions and keep conclusions and recommendations traceable to the available project data.
 
 ---
 
 ## Data Validation
 
-Before portfolio analysis, the datasets are checked for consistency, including:
+The repository also includes Python validation scripts used to check the consistency of the prototype data.
 
-- Project ID consistency
-- Employee ID consistency
-- Jira issue references
-- Dependency relationships
-- Orphan Jira records
-- Cross-file reference errors
+These scripts support data-quality checks before portfolio analysis is performed.
 
-Python validation scripts are included in the repository.
+They are separate from the Agent's decision policy.
 
 ---
 
 ## Management View
 
-The default management-level output is intentionally concise:
+The Agent is designed to help a manager understand the portfolio without reviewing every underlying data source individually.
 
-**Project Name | Overall Status | Upcoming Critical Milestone / Date | Short Note**
+The management view is intended to answer questions such as:
 
-Detailed analysis can then explain the evidence behind the status, root cause, dependency impact, resource considerations, and recommendation.
+- What is the overall portfolio status?
+- Which projects require attention?
+- What is causing the problem?
+- What could be affected?
+- Is resource capacity contributing to the issue?
+- Is a safe resource alternative available?
+- Are there relevant financial or KPI signals?
+- Which deliveries or milestones require attention?
+- What action should management consider?
+
+The objective is decision support rather than simply producing a risk dashboard.
 
 ---
 
 ## Development Approach
 
-The prototype was developed using:
+The prototype was developed using **Hermes and VS Code** with an agentic development approach.
 
-- **Hermes**
-- **Visual Studio Code**
-- **Python-based data validation**
-- **Synthetic enterprise data**
-- **Agentic development approach**
+The data model, decision rules, risk logic, guardrails, reporting behavior, and test scenarios were defined and refined through natural-language instructions and iterative testing.
 
-I defined and iteratively refined the data model, decision rules, risk logic, guardrails, and test scenarios through natural-language instructions.
+Python scripts were also used for prototype data validation.
 
-The focus was not only on generating an output, but also on defining how the agent should evaluate portfolio information, how its conclusions should be grounded, and where human approval should remain mandatory.
+The development process included reviewing Agent outputs against the underlying source data and refining the policy when unsupported assumptions or inconsistencies were identified.
 
 ---
 
 ## Prototype Scope
 
-This repository represents a prototype and does **not** contain live enterprise integrations.
+This repository is a prototype built with a synthetic eight-project portfolio.
 
-Because I did not have access to corporate systems, Jira, Confluence, finance, resource/HR, and KPI information were simulated through an 8-project synthetic dataset and project documents.
+It demonstrates the decision logic, grounding approach, governance model, and portfolio-analysis concept.
 
-In a real enterprise environment, the same design could be extended through authorized APIs and integrations to retrieve current information from approved systems.
+It does **not** represent a production deployment or a live connection to Jira, Confluence, HR, financial, or other enterprise systems.
 
-The core question behind the project is:
-
-> **Where is the problem, why is it happening, what is the impact, and what can we do about it?**
-
-with one important boundary:
-
-> **The final decision belongs to the human manager.**
+In an enterprise implementation, authorized APIs, access controls, data governance, auditability, and system-specific integration requirements would need to be implemented separately.
 
 ---
 
@@ -200,6 +255,11 @@ with one important boundary:
 ```text
 ai-delivery-agent/
 │
+├── agent_policy/
+│   ├── SKILL.md
+│   └── references/
+│       └── karar-politikasi-v1.md
+│
 ├── confluence_docs/
 │   ├── PRJ-001_Confluence_Project_Overview.docx
 │   ├── PRJ-002_Confluence_Project_Overview.docx
@@ -213,199 +273,259 @@ ai-delivery-agent/
 ├── project_people.csv
 ├── kpi.csv
 ├── validate_data.py
-└── validate_data2.py
+├── validate_data2.py
+└── README.md
 ```
 
 ---
+
+<a id="türkçe"></a>
 
 # Türkçe
 
 ## Genel Bakış
 
-AI Delivery Agent, 8 projelik sentetik bir teknoloji portföyü üzerinde geliştirdiğim bir karar destek prototipidir.
+AI Delivery Agent, proje portföyü seviyesinde delivery analizi yapmak ve yönetim kararlarını desteklemek amacıyla geliştirilmiş bir prototiptir.
 
-Amacım yalnızca **“Hangi proje riskli?”** sorusuna cevap veren bir yapı oluşturmak değildi. Agent'ın bu sorudan sonra bir yöneticinin değerlendirmesi gereken konulara da birlikte bakabilmesini hedefledim:
+Amaç yalnızca “Hangi proje riskli?” sorusunu cevaplamak değildir.
+
+Agent aşağıdaki soruların birlikte değerlendirilmesine yardımcı olacak şekilde tasarlanmıştır:
 
 - Proje neden riskli?
-- Root cause nedir?
+- Olası root cause nedir?
 - Bir dependency başka hangi projeleri etkileyebilir?
-- Sorun gerçekten kaynak yetersizliği mi?
-- Uygun başka bir kaynak varsa, bu kişinin kaydırılması başka bir projeyi riske atar mı?
-- Bütçe, ROI, CAPEX, OPEX ve KPI'lar ne söylüyor?
-- T anında yönetimin dikkati nereye yönelmeli?
+- Sorun gerçekten resource/capacity kaynaklı mı?
+- Uygun başka bir kaynak varsa, kaynak değişikliği başka bir projeyi riske atabilir mi?
+- Bütçe, ROI ve KPI verileri ne söylüyor?
+- Mevcut verilere göre yönetimin dikkati nereye yönelmeli?
 
-Ortaya bu soruları tek bir karar destek akışında değerlendirmek üzere tasarlanan bir AI Delivery Agent çıktı.
-
-> **Agent önerir. Kararı yönetici verir.**
+Agent, yapılandırılmış proje verileri ile proje dokümanlarından çıkarılan bilgileri aynı analiz içinde değerlendirerek portföy seviyesinde bir yönetim görünümü oluşturmayı amaçlar.
 
 ---
 
-## Veri Kaynakları
+## Prototip Veri Kaynakları
 
-Prototipte kurumsal sistemleri ve bilgi kaynaklarını temsil eden sentetik veriler birlikte kullanıldı:
+Prototip, sentetik veriler kullanılarak oluşturulmuş bir kurumsal proje portföyünü simüle eder.
 
-**Jira benzeri veriler**
-- Issue, blocker, dependency
-- Assignee, effort, milestone
+Analizde kullanılan veri grupları:
 
-**Confluence benzeri proje dokümanları**
-- Objective
-- Scope
-- Risk
-- Decision
+- **Jira benzeri veriler** — issue, blocker, dependency, assignee, effort, milestone
+- **Confluence benzeri proje dokümanları** — Objective, Scope, Risk, Decision
+- **Finansal veriler** — Expected ROI, CAPEX, OPEX, approved budget, actual cost
+- **Kaynak verileri** — skill, allocation, capacity
+- **KPI verileri** — target ve current değerler
 
-**Finansal veriler**
-- ROI, CAPEX, OPEX
-- Bütçe ve gerçekleşen maliyet
+Gerçek bir kurumsal ortamda aynı tasarım, yetkilendirilmiş API'ler ve kurumsal sistem entegrasyonları üzerinden genişletilebilir.
 
-**Kaynak / İK verileri**
-- Yetkinlik
-- Allocation
-- Capacity
-
-**KPI verileri**
-- Hedef ve gerçekleşen değerler
-
-Repository'deki verilerin tamamı sentetiktir. Gerçek şirket veya kişisel veri kullanılmamıştır.
+Bu prototipte canlı kurumsal sistem entegrasyonu bulunmamaktadır.
 
 ---
 
 ## Yapılandırılmış + Yapılandırılmamış Bilgi
 
-Confluence benzeri bilgiler Agent'a hazır kolonlar halinde verilmedi.
+Confluence benzeri proje bilgileri Agent'a hazır kolonlar halinde verilmemiştir.
 
-Agent proje dokümanlarını okuyarak **Objective, Scope, Risk ve Decision** gibi bilgileri çıkarır ve bunları yapılandırılmış proje, Jira, finans, kaynak ve KPI verileriyle birlikte değerlendirir.
+Agent proje dokümanları üzerinden aşağıdaki gibi bilgileri değerlendirir:
 
-Böylece yapılandırılmış veriler ile proje dokümanlarındaki yapılandırılmamış bilgiler aynı portföy analizinde birleşir.
+- Objective
+- Scope
+- Risk
+- Decision
+
+Böylece yapılandırılmış portföy verileri ile proje dokümanlarındaki yapılandırılmamış bilgiler aynı analiz kapsamında ele alınabilir.
 
 ---
 
 ## Karar Akışı
 
+Agent'ın karar destek akışı:
+
 **Risk Tespiti → Root Cause Analysis → Resource Optimization → Recommendation → Human Approval**
 
-### Risk Tespiti
+Bir projenin gecikmesi otomatik olarak kaynak problemine bağlanmaz.
 
-Agent; proje ilerlemesi, deadline, blocker'lar, blocker yaşı, dependency'ler, effort, finansal bilgiler ve KPI performansı gibi göstergeleri değerlendirir.
+Analizde blocker, dependency, effort, resource/capacity, finansal veriler, KPI bilgileri ve mevcut diğer delivery sinyalleri birlikte değerlendirilir.
 
-### Root Cause Analysis
+Kaynak problemi mevcut verilerle destekleniyorsa alternatif kaynak değerlendirmesinde aşağıdaki unsurlar dikkate alınır:
 
-Bir proje gecikiyorsa Agent bunu doğrudan kaynak problemine bağlamaz.
+- Skill uyumu
+- Capacity
+- Mevcut görevler
+- Proje öncelikleri
+- Dependency etkisi
+- Değişikliğin diğer projelere olası etkisi
 
-Blocker'ları, dependency'leri ve mevcut diğer kanıtları değerlendirerek riskin muhtemel nedenini belirlemeye çalışır.
+Mevcut veriler güvenli bir alternatif kaynağı desteklemiyorsa Agent'ın bunu açıkça belirtmesi ve alternatif uydurmaması beklenir.
 
-### Dependency Etkisi
+---
 
-Bir dependency riske katkıda bulunuyorsa, bundan başka hangi projelerin etkilenebileceği de değerlendirilir.
+## Delivery Risk Analizi
 
-Böylece analiz tek bir projeden portföy seviyesine taşınır.
+Mevcut karar politikası delivery riskini yedi boyutta değerlendirir:
 
-### Resource Optimization
+1. Takvim
+2. Blocker
+3. Efor
+4. Dependency
+5. Resource / Capacity
+6. Finansal Delivery Riski
+7. KPI / Outcome Riski
 
-Sorunun kaynakla ilişkili olduğuna dair kanıt varsa Agent alternatifleri şu bilgiler üzerinden değerlendirir:
+Tek bir metrik otomatik olarak genel risk sonucunu belirlemez.
 
-- Gerekli yetkinlik
-- Mevcut capacity
-- Allocation
-- Mevcut proje sorumlulukları
+Örneğin bir blocker veya dependency bulunması, deadline'ın yaklaşması, bütçe kullanımının yüksek olması ya da KPI'ın target'a ulaşmamış olması tek başına yeterli risk kanıtı olarak değerlendirilmez.
 
-Bir kaynağın başka bir projeden alınmasının o projede yeni bir risk oluşturup oluşturmayacağı da dikkate alınır.
+Agent birden fazla destekleyici sinyali birlikte değerlendirecek ve yalnızca sonuç üretmek amacıyla yapay risk oluşturmayacak şekilde tasarlanmıştır.
 
-Uygun alternatif yoksa Agent'ın zorla bir öneri üretmesi yerine bunu belirtmesi beklenir.
+---
 
-### Recommendation & Human Approval
+## Root Cause Analysis
 
-Agent; proje, dependency, kaynak, finans ve KPI bağlamını birlikte değerlendirerek bir öneri oluşturur.
+Risk tespiti ile root cause analizi birbirinden ayrı değerlendirilir.
 
-Kaynak değişikliği, proje önceliği veya teslimat tarihi gibi kritik aksiyonlar insan onayı olmadan uygulanmaz.
+Agent bir delivery problemini otomatik olarak developer performansına veya resource capacity'ye bağlamaz.
+
+Olası root cause kategorileri:
+
+- Resource / Capacity
+- Technical / System
+- Dependency
+- Access / Infrastructure
+- Requirement / Scope
+- External / Vendor
+- UNKNOWN
+
+Yeterli kanıt bulunmadığında kesin bir root cause üretmek yerine **Root Cause Candidate** veya **UNKNOWN** kullanılır.
 
 ---
 
 ## Grounding ve İzlenebilirlik
 
-Testler sırasında Agent'ın ürettiği bir sonucun kaynak veriyle uyuşmadığı bir durum tespit ettim.
+Testler sırasında Agent tarafından üretilen bir sonucun kaynak veriyle uyuşmadığı tespit edildi.
 
-Bu nedenle grounding ve izlenebilirliği tasarımın açık bir parçası haline getirdim.
+Bu nedenle grounding ve izlenebilirlik Agent tasarımının açık bir parçası haline getirildi.
 
-Agent çıktıları dört kategoriye ayrılır:
+Analizde aşağıdaki ayrım kullanılır:
 
-- **FACT** — kaynak veri tarafından doğrudan desteklenen bilgi
-- **CALCULATED** — mevcut verilerden hesaplanan bilgi
-- **INFERENCE** — mevcut kanıtlara dayanarak yapılan çıkarım
-- **UNKNOWN** — mevcut verilerle güvenilir şekilde belirlenemeyen bilgi
+- **FACT** — doğrudan kaynak veriden doğrulanabilen bilgi
+- **CALCULATED** — kaynak verilerden tekrarlanabilir bir hesaplamayla elde edilen bilgi
+- **INFERENCE** — mevcut fact ve/veya calculated bilgilerden yapılan mantıksal çıkarım
+- **UNKNOWN** — karar için gerekli bilginin eksik veya yetersiz olması
 
-Bu ayrım, Agent'ın neyi bildiğini, neyi hesapladığını, nerede çıkarım yaptığını ve nerede yeterli veri olmadığını daha görünür hale getirir.
+Agent'ın eksik veri, desteklenmeyen threshold, kişi, tarih, sistem bilgisi veya sonuç uydurmaması karar politikasının bir parçasıdır.
+
+Bu yaklaşım Agent'ın neyi bildiğini, neyi hesapladığını, nerede çıkarım yaptığını ve nerede yeterli veri bulunmadığını ayrıştırmayı amaçlar.
 
 ---
 
 ## Human-in-the-Loop
 
-Prototip otonom karar veren bir sistem olarak değil, karar destek sistemi olarak tasarlandı.
+Temel tasarım prensibi:
 
-**Agent önerir → İnsan değerlendirir → İnsan onaylar veya reddeder**
+**Agent önerir. Kararı yönetici verir.**
 
-Kaynak değişikliği, öncelik ve teslimat tarihi gibi kritik kararlar insan kontrolünde kalır.
+Agent:
+
+- Proje verilerini analiz edebilir
+- Riskleri tespit edip açıklayabilir
+- Olası root cause'ları araştırabilir
+- Mevcut kanıtları değerlendirebilir
+- Olası aksiyonlar önerebilir
+
+Ancak kritik aksiyonların açık insan onayı olmadan uygulanmaması tasarımın bir parçasıdır.
+
+Bunlara örnek olarak:
+
+- Resource reassignment
+- Deadline veya milestone değişikliği
+- Scope değişikliği
+- Priority değişikliği
+- Risk kabulü veya kapatılması
+- Kaynak sistem verilerinin değiştirilmesi
+
+verilebilir.
+
+Recommendation ile execution'ın ayrılması yönetişim modelinin temel parçalarından biridir.
+
+---
+
+## Agent Karar Politikası ve Yönetişim
+
+Agent'ın karar verme davranışı, tek başına hard-coded bir risk scripti yerine kalıcı bir politika katmanı üzerinden tanımlanmıştır.
+
+### `agent_policy/SKILL.md`
+
+Agent'ın çalışma kurallarını tanımlar. Bunlar arasında:
+
+- Delivery risk değerlendirmesi
+- Grounding gereksinimleri
+- Root cause davranışı
+- Resource/capacity analizi
+- Yönetici raporlama kuralları
+- Human Approval kontrolleri
+- Çıktı ve raporlama davranışı
+
+bulunur.
+
+### `agent_policy/references/karar-politikasi-v1.md`
+
+Agent'ın portföy delivery analizinde kullandığı detaylı karar politikasını içerir.
+
+Politika, geliştirme sırasında desteklenmeyen varsayımları azaltmak ve sonuçlarla önerilerin mevcut proje verileriyle izlenebilir olmasını sağlamak amacıyla iteratif olarak geliştirilmiştir.
 
 ---
 
 ## Veri Doğrulama
 
-Portföy analizinden önce veri setleri arasındaki tutarlılık kontrol edilir:
+Repository'de prototip verilerinin tutarlılığını kontrol etmek amacıyla kullanılan Python validation scriptleri de bulunmaktadır.
 
-- Project ID tutarlılığı
-- Employee ID tutarlılığı
-- Jira issue referansları
-- Dependency ilişkileri
-- Orphan Jira kayıtları
-- Dosyalar arası referans hataları
+Bu scriptler portföy analizi öncesinde veri kalitesinin kontrol edilmesini destekler.
 
-Bu kontroller için kullanılan Python validation scriptleri repository'de bulunmaktadır.
+Validation scriptleri Agent'ın karar politikasından ayrı bir katmandır.
 
 ---
 
-## Yönetici Görünümü
+## Yönetim Görünümü
 
-Varsayılan yönetici çıktısı bilinçli olarak kısa tutuldu:
+Agent, yöneticinin her veri kaynağını ayrı ayrı incelemesine gerek kalmadan portföyün durumunu değerlendirmesine yardımcı olacak şekilde tasarlanmıştır.
 
-**Proje Adı | Genel Durum | Yaklaşan Kritik Nokta / Tarih | Kısa Not**
+Yönetim görünümünün aşağıdaki sorulara cevap vermesi amaçlanır:
 
-Gerektiğinde detay analiz; durumun arkasındaki kanıtları, root cause'u, dependency etkisini, kaynak değerlendirmesini ve öneriyi açıklar.
+- Portföyün genel durumu nasıl?
+- Hangi projeler dikkat gerektiriyor?
+- Sorunun nedeni ne?
+- Neler etkilenebilir?
+- Resource capacity probleme katkı sağlıyor mu?
+- Güvenli bir alternatif kaynak var mı?
+- Önemli finansal veya KPI sinyalleri bulunuyor mu?
+- Hangi teslimatlar veya milestone'lar dikkat gerektiriyor?
+- Yönetimin hangi aksiyonu değerlendirmesi gerekiyor?
+
+Amaç yalnızca bir risk dashboard'u üretmek değil, karar desteği sağlamaktır.
 
 ---
 
 ## Geliştirme Yaklaşımı
 
-Prototipi geliştirirken:
+Prototip **Hermes ve VS Code** kullanılarak agentic development yaklaşımıyla geliştirilmiştir.
 
-- **Hermes**
-- **Visual Studio Code**
-- **Python tabanlı veri doğrulama**
-- **Sentetik kurumsal veri**
-- **Agentic development yaklaşımı**
+Veri modeli, karar kuralları, risk mantığı, guardrail'ler, raporlama davranışı ve test senaryoları doğal dil üzerinden tanımlanmış ve iteratif testlerle geliştirilmiştir.
 
-kullandım.
+Python scriptleri prototip verilerinin doğrulanmasında da kullanılmıştır.
 
-Veri modelini, karar kurallarını, risk mantığını, guardrail'leri ve test senaryolarını doğal dil üzerinden tanımlayarak Agent'ın davranışını iteratif olarak geliştirdim.
-
-Amaç yalnızca bir çıktı üretmek değil; Agent'ın portföy bilgisini nasıl değerlendireceğini, sonuçlarını hangi verilere dayandıracağını ve hangi noktalarda insan onayının zorunlu kalacağını tasarlamaktı.
+Geliştirme sürecinde Agent çıktıları kaynak verilerle karşılaştırılmış; desteklenmeyen varsayımlar veya tutarsızlıklar tespit edildiğinde karar politikası geliştirilmiştir.
 
 ---
 
 ## Prototip Kapsamı
 
-Bu repository bir prototiptir ve **canlı kurumsal sistem entegrasyonları içermez.**
+Bu repository, sekiz projelik sentetik bir portföy kullanılarak oluşturulmuş bir prototiptir.
 
-Gerçek kurumsal sistemlere erişimim olmadığı için Jira, Confluence, finans, kaynak/İK ve KPI yapılarını 8 projelik sentetik veri seti ve proje dokümanları üzerinden simüle ettim.
+Decision logic, grounding yaklaşımı, governance modeli ve portföy analiz yaklaşımını göstermektedir.
 
-Gerçek bir kurumsal ortamda aynı tasarım, yetkilendirilmiş API'ler ve entegrasyonlar aracılığıyla onaylı sistemlerden güncel verilerin alınabileceği şekilde genişletilebilir.
+Production ortamında çalışan veya Jira, Confluence, İK, finans ya da diğer kurumsal sistemlere canlı bağlı bir çözüm değildir.
 
-Projenin temel sorusu:
-
-> **Nerede sorun var, neden var, etkisi ne ve ne yapabiliriz?**
-
-En önemli sınırı ise:
-
-> **Son karar insandadır.**
+Gerçek bir kurumsal uygulamada yetkilendirilmiş API'ler, erişim kontrolleri, veri yönetişimi, auditability ve sisteme özgü entegrasyon gereksinimlerinin ayrıca uygulanması gerekir.
 
 ---
 
@@ -414,6 +534,11 @@ En önemli sınırı ise:
 ```text
 ai-delivery-agent/
 │
+├── agent_policy/
+│   ├── SKILL.md
+│   └── references/
+│       └── karar-politikasi-v1.md
+│
 ├── confluence_docs/
 │   ├── PRJ-001_Confluence_Project_Overview.docx
 │   ├── PRJ-002_Confluence_Project_Overview.docx
@@ -427,5 +552,16 @@ ai-delivery-agent/
 ├── project_people.csv
 ├── kpi.csv
 ├── validate_data.py
-└── validate_data2.py
+├── validate_data2.py
+└── README.md
 ```
+
+---
+
+## Key Principle
+
+**AI supports the decision. Human accountability remains with the manager.**
+
+## Temel Prensip
+
+**AI kararı destekler. Nihai sorumluluk yöneticide kalır.**
