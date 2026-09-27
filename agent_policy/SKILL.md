@@ -382,10 +382,6 @@ Bu skill `auto_load: true` olduğu için her oturumda otomatik yüklenir.
 Risk analizi çalıştırıldığında bu kurallar **varsayılan** olarak uygulanır.  
 Kullanıcı her seferinde politikayı tekrar **vermek zorunda kalmaz**.
 
-## 5. Güncelleme
-
-Politika değişirse: `skill_manage(action='patch', name='delivery-risk-policy', file_path='references/karar-politikasi-v1.md', ...)` ile **referans dosyası** güncellenir. SKILL.md değişmez.
-
 ## 8. ANALİS TARİHİ (ANALYSIS DATE) KURALI
 
 **Tüm tarih bazlı hesaplamalarda** (kalan gün, deadline yaklaşımı, milestone gecikmesi, SLA süreleri, vb.) **sabit/tahmini tarih KULLANILMAZ**.
@@ -410,75 +406,3 @@ Politika değişirse: `skill_manage(action='patch', name='delivery-risk-policy',
 - Sadece tarih bağımsız bulgular raporlanır.
 
 > Bu kural, portföy raporu, proje bazlı analiz, risk motoru çıktısı — **tüm** tarih bazlı çıktılara geçerlidir.
-
----
-
-## 4. Kullanım
-
-Bu skill `auto_load: true` olduğu için her oturumda otomatik yüklenir.  
-Risk analizi çalıştırıldığında bu kurallar **varsayılan** olarak uygulanır.  
-Kullanıcı her seferinde politikayı tekrar **vermek zorunda kalmaz**.
-
-## 5. Güncelleme
-
-Politika değişirse: `skill_manage(action='patch', name='delivery-risk-policy', file_path='references/karar-politikasi-v1.md', ...)` ile **referans dosyası** güncellenir. SKILL.md değişmez.
-
-## 8. ANALİS TARİHİ (ANALYSIS DATE) KURALI
-
-**Tüm tarih bazlı hesaplamalarda** (kalan gün, deadline yaklaşımı, milestone gecikmesi, SLA süreleri, vb.) **sabit/tahmini tarih KULLANILMAZ**.
-
-**Analysis Date** = Analizin çalıştırıldığı günün **güncel tarihi** (sistem saati / kullanıcı ortamı).
-
-**Kaynak Veri Tarihleri (değiştirilmez, verinin güncellik tarihi olarak kabul edilir):**
-- `Measurement_Date` (KPI ölçüm tarihi)
-- `Financial_Data_As_Of` (Mali veri tarihi)
-- `Status_Changed_Date` (Jira durum değişim tarihi)
-- `Created_Date`, `Updated_Date`, `Due_Date` (Jira tarihleri)
-- `Start_Date`, `Deadline_Date`, `Milestone_Due_Date` (Proje plan tarihleri)
-
-**Kullanım:**
-- `Kalan Gün = Deadline_Date (veya Milestone_Due_Date) - Analysis Date`
-- `Gecikme = Analysis Date - Due_Date` (pozitifse gecikmiş)
-- `Veri Yaşı = Analysis Date - Measurement_Date` (veri ne kadar eski)
-
-**Analysis Date güvenilir belirlenemiyorsa** (örn. çevre değişkeni yok, sistem saati güvenilir değil):
-- **Tarih bazlı hiçbir sonuç ÜRETİLMEZ**
-- Kullanıcıya: *"Analiz tarihi güvenilir belirlenemediği için tarih bazlı hesaplamalar (kalan gün, gecikme, vb.) yapılamadı. Bu bölüm atlandı."* gibi doğal Türkçe açıklama gösterilir.
-- Sadece tarih bağımsız bulgular (durum, allocation, bütçe kalemleri, vb.) raporlanır.
-
-> Bu kural, portföy raporu, proje bazlı analiz, risk motoru çıktısı — **tüm** tarih bazlı çıktılara geçerlidir.
-
-## 4. Kullanım
-
-Bu skill `auto_load: true` olduğu için her oturumda otomatik yüklenir.  
-Risk analizi çalıştırıldığında bu kurallar **varsayılan** olarak uygulanır.  
-Kullanıcı her seferinde politikayı tekrar **vermek zorunda kalmaz**.
-
-## 5. Güncelleme
-
-Politika değişirse: `skill_manage(action='patch', name='delivery-risk-policy', file_path='references/karar-politikasi-v1.md', ...)` ile **referans dosyası** güncellenir. SKILL.md değişmez.
-
-## 8. ANALİS TARİHİ (ANALYSIS DATE) KURALI
-
-**Tüm tarih bazlı hesaplamalarda** (kalan gün, deadline yaklaşımı, milestone gecikmesi, SLA süreleri, vb.) **sabit/tahmini tarih KULLANILMAZ**.
-
-**Analysis Date** = Analizin çalıştırıldığı günün **güncel tarihi** (sistem saati / kullanıcı ortamı).
-
-**Kaynak Veri Tarihleri (değiştirilmez, verinin güncellik tarihi olarak kabul edilir):**
-- `Measurement_Date` (KPI ölçüm tarihi)
-- `Financial_Data_As_Of` (Mali veri tarihi)
-- `Status_Changed_Date` (Jira durum değişim tarihi)
-- `Created_Date`, `Updated_Date`, `Due_Date` (Jira tarihleri)
-- `Start_Date`, `Deadline_Date`, `Milestone_Due_Date` (Proje plan tarihleri)
-
-**Kullanım:**
-- `Kalan Gün = Deadline_Date (veya Milestone_Due_Date) - Analysis Date`
-- `Gecikme = Analysis Date - Due_Date` (pozitifse gecikmiş)
-- `Veri Yaşı = Analysis Date - Measurement_Date` (veri ne kadar eski)
-
-**Analysis Date güvenilir belirlenemiyorsa** (örn. çevre değişkeni yok, sistem saati güvenilir değil):
-- **Tarih bazlı hiçbir sonuç ÜRETİLMEZ**
-- Kullanıcıya: *"Analiz tarihi güvenilir belirlenemediği için tarih bazlı hesaplamalar (kalan gün, gecikme, vb.) yapılamadı. Bu bölüm atlandı."* gibi doğal Türkçe açıklama gösterilir.
-- Sadece tarih bağımsız bulgular (durum, allocation, bütçe kalemleri, vb.) raporlanır.
-
-> Bu kural, portföy özeti, proje bazlı analiz, risk motoru çıktısı — **tüm** tarih bazlı çıktılara geçerlidir.
