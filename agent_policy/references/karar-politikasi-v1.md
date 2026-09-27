@@ -1,7 +1,5 @@
 # AI DELIVERY AGENT – KARAR POLİTİKASI v1
 
-Çalışma dizini:
-C:\Users\Asus\OneDrive\Desktop\ai-delivery-agent
 
 AMAÇ
 
