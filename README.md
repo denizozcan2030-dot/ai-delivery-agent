@@ -65,7 +65,7 @@ This allows structured portfolio data and unstructured project documentation to 
 
 The Agent follows the decision-support flow:
 
-**Risk Detection → Root Cause Analysis → Resource Optimization → Recommendation → Human Approval**
+**Risk Detection → Root Cause Candidate Analysis → Resource / Capacity Analysis → Recommendation → Human Approval**
 
 A project delay is not automatically treated as a resource problem.
 
@@ -104,7 +104,7 @@ The Agent is designed to evaluate multiple supporting signals and avoid creating
 
 ---
 
-## Root Cause Analysis
+## Root Cause Candidate Analysis
 
 Risk detection and root cause analysis are treated as separate steps.
 
@@ -206,7 +206,7 @@ They are separate from the Agent's decision policy.
 
 ---
 
-## Management View
+## Management Reporting View
 
 The Agent is designed to help a manager understand the portfolio without reviewing every underlying data source individually.
 
@@ -340,7 +340,7 @@ Böylece yapılandırılmış portföy verileri ile proje dokümanlarındaki yap
 
 Agent'ın karar destek akışı:
 
-**Risk Tespiti → Root Cause Analysis → Resource Optimization → Recommendation → Human Approval**
+**Risk Tespiti → Root Cause Candidate Analysis → Resource / Capacity Analysis → Recommendation → Human Approval**
 
 Bir projenin gecikmesi otomatik olarak kaynak problemine bağlanmaz.
 
@@ -379,7 +379,7 @@ Agent birden fazla destekleyici sinyali birlikte değerlendirecek ve yalnızca s
 
 ---
 
-## Root Cause Analysis
+## Root Cause Candidate Analysis
 
 Risk tespiti ile root cause analizi birbirinden ayrı değerlendirilir.
 
@@ -485,7 +485,7 @@ Validation scriptleri Agent'ın karar politikasından ayrı bir katmandır.
 
 ---
 
-## Yönetim Görünümü
+## Yönetici Raporlama Görünümü
 
 Agent, yöneticinin her veri kaynağını ayrı ayrı incelemesine gerek kalmadan portföyün durumunu değerlendirmesine yardımcı olacak şekilde tasarlanmıştır.
 
