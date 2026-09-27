@@ -1,0 +1,9 @@
+﻿Project_ID,Project_Name,Project_Status,Start_Date,Deadline_Date,Strategic_Priority,Next_Milestone,Milestone_Due_Date,Milestone_Status
+PRJ-001,Payment API Modernization,In Progress,2026-06-01,2026-09-30,Critical,Production Infrastructure Ready,2026-08-27,At Risk
+PRJ-002,Mobile Checkout Revamp,In Progress,2026-06-15,2026-09-25,High,Payment API Integration Complete,2026-08-30,At Risk
+PRJ-003,Customer Self-Service Portal,In Progress,2026-05-20,2026-10-15,Medium,Profile Update Workflow Complete,2026-08-31,In Progress
+PRJ-004,AI Recommendation Engine,In Progress,2026-06-10,2026-10-10,High,Feature Engineering Pipeline Complete,2026-09-04,At Risk
+PRJ-005,Data Platform Migration,In Progress,2026-05-15,2026-09-20,Critical,Customer Feature Tables Migrated,2026-08-31,At Risk
+PRJ-006,Cloud Infrastructure Upgrade,In Progress,2026-05-01,2026-09-05,Critical,Migration Cutover Routing Ready,2026-08-27,At Risk
+PRJ-007,Identity & Access Security Upgrade,In Progress,2026-05-10,2026-09-15,Critical,Network Security Policy Approved,2026-08-27,At Risk
+PRJ-008,CRM Integration Program,In Progress,2026-06-01,2026-10-05,High,Integration Test Environment Ready,2026-08-30,At Risk

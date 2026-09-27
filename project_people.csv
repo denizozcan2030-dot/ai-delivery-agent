@@ -1,0 +1,39 @@
+﻿Project_ID,Project_Name,Employee_ID,Employee_Name,Role_In_Project,Project_Allocation_Percent
+PRJ-001,Payment API Modernization,EMP-001,Ece Yılmaz,Project Lead,60
+PRJ-001,Payment API Modernization,EMP-002,Ayşe Demir,Backend Developer,80
+PRJ-001,Payment API Modernization,EMP-003,Mehmet Kaya,Backend Developer,60
+PRJ-001,Payment API Modernization,EMP-004,Selin Arslan,QA Engineer,50
+PRJ-001,Payment API Modernization,EMP-005,Can Aydın,DevOps Engineer,50
+PRJ-002,Mobile Checkout Revamp,EMP-006,Burcu Şahin,Product Lead,70
+PRJ-002,Mobile Checkout Revamp,EMP-007,Okan Çelik,Mobile Developer,90
+PRJ-002,Mobile Checkout Revamp,EMP-008,Elif Koç,Frontend Developer,60
+PRJ-002,Mobile Checkout Revamp,EMP-009,Derya Aksoy,Frontend Developer,40
+PRJ-002,Mobile Checkout Revamp,EMP-004,Selin Arslan,QA Engineer,40
+PRJ-002,Mobile Checkout Revamp,EMP-005,Can Aydın,DevOps Engineer,35
+PRJ-003,Customer Self-Service Portal,EMP-010,Murat Öztürk,Project Lead,40
+PRJ-003,Customer Self-Service Portal,EMP-011,Zeynep Tunç,Frontend Developer,80
+PRJ-003,Customer Self-Service Portal,EMP-012,Kerem Acar,Full Stack Developer,70
+PRJ-003,Customer Self-Service Portal,EMP-009,Derya Aksoy,Frontend Developer,45
+PRJ-003,Customer Self-Service Portal,EMP-004,Selin Arslan,QA Engineer,25
+PRJ-004,AI Recommendation Engine,EMP-013,Gökhan Erdem,Product Lead,70
+PRJ-004,AI Recommendation Engine,EMP-014,Deniz Korkmaz,Data Engineer,70
+PRJ-004,AI Recommendation Engine,EMP-015,Bora Yalçın,ML Engineer,100
+PRJ-004,AI Recommendation Engine,EMP-003,Mehmet Kaya,Backend Developer,35
+PRJ-004,AI Recommendation Engine,EMP-005,Can Aydın,DevOps Engineer,25
+PRJ-005,Data Platform Migration,EMP-016,Seda Karaca,Project Lead,80
+PRJ-005,Data Platform Migration,EMP-014,Deniz Korkmaz,Data Engineer,55
+PRJ-005,Data Platform Migration,EMP-004,Selin Arslan,QA Engineer,30
+PRJ-005,Data Platform Migration,EMP-005,Can Aydın,DevOps Engineer,30
+PRJ-006,Cloud Infrastructure Upgrade,EMP-005,Can Aydın,DevOps Lead,70
+PRJ-006,Cloud Infrastructure Upgrade,EMP-017,Hakan Uslu,Cloud Engineer,100
+PRJ-006,Cloud Infrastructure Upgrade,EMP-018,Aslı Güner,Security Advisor,25
+PRJ-007,Identity & Access Security Upgrade,EMP-018,Aslı Güner,Security Lead,85
+PRJ-007,Identity & Access Security Upgrade,EMP-017,Hakan Uslu,Cloud Engineer,20
+PRJ-007,Identity & Access Security Upgrade,EMP-004,Selin Arslan,QA Engineer,30
+PRJ-008,CRM Integration Program,EMP-010,Murat Öztürk,Program Lead,60
+PRJ-008,CRM Integration Program,EMP-003,Mehmet Kaya,Backend Developer,45
+PRJ-008,CRM Integration Program,EMP-002,Ayşe Demir,Backend Developer,35
+PRJ-008,CRM Integration Program,EMP-012,Kerem Acar,Full Stack Developer,40
+PRJ-008,CRM Integration Program,EMP-009,Derya Aksoy,Frontend Developer,25
+PRJ-008,CRM Integration Program,EMP-004,Selin Arslan,QA Engineer,35
+PRJ-008,CRM Integration Program,EMP-005,Can Aydın,DevOps Engineer,30

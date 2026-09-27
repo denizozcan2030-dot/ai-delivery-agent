@@ -1,0 +1,19 @@
+﻿Employee_ID,Employee_Name,Primary_Role,Home_Team,Skills,Total_Capacity_Percent
+EMP-001,Ece Yılmaz,Technical Project Manager,Program & Delivery,Project Delivery; Stakeholder Management; Risk Management,100
+EMP-002,Ayşe Demir,Backend Developer,Software Development,Python; REST API; Microservices; SQL,100
+EMP-003,Mehmet Kaya,Backend Developer,Software Development,Java; REST API; Integration; SQL,100
+EMP-004,Selin Arslan,QA Engineer,Quality Assurance,API Testing; Regression Testing; Test Automation,100
+EMP-005,Can Aydın,DevOps Engineer,Cloud & DevOps,Kubernetes; CI/CD; Observability; Cloud,100
+EMP-006,Burcu Şahin,Product Manager,Product,Product Strategy; Backlog; Stakeholder Management,100
+EMP-007,Okan Çelik,Mobile Developer,Software Development,Android; Kotlin; Mobile Integration,100
+EMP-008,Elif Koç,Frontend Developer,Software Development,React; TypeScript; Analytics,100
+EMP-009,Derya Aksoy,Frontend Developer,Software Development,React; UX Integration; Feature Flags,100
+EMP-010,Murat Öztürk,Technical Program Manager,Program & Delivery,Program Management; Integration; Stakeholder Management,100
+EMP-011,Zeynep Tunç,Frontend Developer,Software Development,React; Accessibility; Web Performance,100
+EMP-012,Kerem Acar,Full Stack Developer,Software Development,JavaScript; APIs; Debugging; Data Mapping,100
+EMP-013,Gökhan Erdem,AI Product Manager,AI & Data,AI Product; Experimentation; Model Evaluation,100
+EMP-014,Deniz Korkmaz,Data Engineer,Data Engineering,ETL; Data Modeling; Python; Data Quality,100
+EMP-015,Bora Yalçın,ML Engineer,AI & Data,Machine Learning; Model Evaluation; Python,100
+EMP-016,Seda Karaca,Data Platform Lead,Data Engineering,Data Architecture; Migration; Data Quality,100
+EMP-017,Hakan Uslu,Cloud Engineer,Cloud & DevOps,Networking; Kubernetes; Disaster Recovery,100
+EMP-018,Aslı Güner,Security Lead,Cyber Security,IAM; MFA; Security Governance; Audit,100

@@ -1,0 +1,24 @@
+﻿Project_ID,Project_Name,KPI_ID,KPI_Name,Unit,Baseline_Value,Target_Value,Current_Value,Measurement_Date
+PRJ-001,Payment API Modernization,KPI-001,Payment API Availability,percent,99.5,99.95,99.62,2026-08-24
+PRJ-001,Payment API Modernization,KPI-002,P95 API Response Time,ms,850.0,500.0,720.0,2026-08-24
+PRJ-001,Payment API Modernization,KPI-003,Payment-related Production Incidents per Month,count,12.0,5.0,9.0,2026-08-24
+PRJ-002,Mobile Checkout Revamp,KPI-004,Checkout Conversion Rate,percent,62.0,65.1,62.8,2026-08-24
+PRJ-002,Mobile Checkout Revamp,KPI-005,Checkout Technical Error Rate,percent,3.8,2.66,3.5,2026-08-24
+PRJ-003,Customer Self-Service Portal,KPI-006,Self-Service Completion Rate,percent,68.0,80.0,78.0,2026-08-24
+PRJ-003,Customer Self-Service Portal,KPI-007,Portal Page Load Time,seconds,2.8,2.0,2.1,2026-08-24
+PRJ-003,Customer Self-Service Portal,KPI-008,Related Call Center Contacts,index,100.0,85.0,88.0,2026-08-24
+PRJ-004,AI Recommendation Engine,KPI-009,Offline Recommendation Quality Improvement,percent,0.0,10.0,7.0,2026-08-24
+PRJ-004,AI Recommendation Engine,KPI-010,Recommendation API P95 Response Time,ms,420.0,300.0,360.0,2026-08-24
+PRJ-004,AI Recommendation Engine,KPI-011,Production Model Monitoring Coverage,percent,0.0,100.0,35.0,2026-08-24
+PRJ-005,Data Platform Migration,KPI-012,Critical Dataset Reconciliation Accuracy,percent,97.8,99.5,98.7,2026-08-24
+PRJ-005,Data Platform Migration,KPI-013,Validated Critical Datasets Before Cutover,percent,0.0,100.0,62.0,2026-08-24
+PRJ-005,Data Platform Migration,KPI-014,Critical Data Quality Defects,count,14.0,0.0,6.0,2026-08-24
+PRJ-006,Cloud Infrastructure Upgrade,KPI-015,Production Infrastructure Availability,percent,99.7,99.95,99.82,2026-08-24
+PRJ-006,Cloud Infrastructure Upgrade,KPI-016,Observability Onboarding Completion,percent,20.0,100.0,68.0,2026-08-24
+PRJ-006,Cloud Infrastructure Upgrade,KPI-017,Critical DR Validation Failures,count,3.0,0.0,1.0,2026-08-24
+PRJ-007,Identity & Access Security Upgrade,KPI-018,Admin MFA Coverage,percent,76.0,100.0,96.0,2026-08-24
+PRJ-007,Identity & Access Security Upgrade,KPI-019,Critical Service Account Credential Rotation,percent,58.0,100.0,92.0,2026-08-24
+PRJ-007,Identity & Access Security Upgrade,KPI-020,Open Critical Access-Control Findings,count,7.0,0.0,1.0,2026-08-24
+PRJ-008,CRM Integration Program,KPI-021,Critical Integration Message Success Rate,percent,97.9,99.5,98.6,2026-08-24
+PRJ-008,CRM Integration Program,KPI-022,Duplicate Customer Mapping Errors,index,100.0,20.0,54.0,2026-08-24
+PRJ-008,CRM Integration Program,KPI-023,Critical Integration Alert Coverage,percent,25.0,100.0,61.0,2026-08-24

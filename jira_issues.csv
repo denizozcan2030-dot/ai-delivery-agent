@@ -1,0 +1,65 @@
+﻿Project_ID,Project_Name,Issue_Key,Issue_Type,Summary,Status,Assignee,Priority,Created_Date,Updated_Date,Status_Changed_Date,Due_Date,Original_Estimate_Hours,Time_Spent_Hours,Remaining_Estimate_Hours,Link_Type,Linked_Issue_Key,Sprint
+PRJ-001,Payment API Modernization,PAY-101,Epic,Payment API Modernization,In Progress,Ece Yılmaz,Highest,2026-06-01,2026-08-25,2026-06-10,2026-09-30,,,,,,
+PRJ-001,Payment API Modernization,PAY-102,Story,Develop payment endpoint,In Progress,Ayşe Demir,High,2026-07-05,2026-08-24,2026-08-20,2026-09-05,40,32,16,depends on,CLD-605,Sprint 14
+PRJ-001,Payment API Modernization,PAY-103,Story,Refund API development,Done,Ayşe Demir,Medium,2026-07-10,2026-08-24,2026-08-24,2026-08-25,32,35,0,,,Sprint 13
+PRJ-001,Payment API Modernization,PAY-104,Bug,Payment timeout issue,Blocked,Mehmet Kaya,Highest,2026-08-01,2026-08-25,2026-08-17,2026-08-28,24,20,16,depends on,PAY-105,Sprint 14
+PRJ-001,Payment API Modernization,PAY-105,Task,Production infrastructure setup,Blocked,Can Aydın,Highest,2026-07-20,2026-08-25,2026-08-16,2026-08-27,32,22,20,depends on,CLD-605,Sprint 14
+PRJ-001,Payment API Modernization,PAY-106,Story,Payment security validation,Blocked,Selin Arslan,High,2026-08-05,2026-08-25,2026-08-19,2026-09-02,40,28,24,depends on,PAY-105,Sprint 14
+PRJ-001,Payment API Modernization,PAY-107,Task,API performance testing,To Do,Selin Arslan,Medium,2026-08-10,2026-08-22,2026-08-10,2026-09-08,24,0,24,depends on,PAY-106,Sprint 15
+PRJ-001,Payment API Modernization,PAY-108,Story,API monitoring integration,In Progress,Can Aydın,Medium,2026-08-12,2026-08-25,2026-08-22,2026-09-10,32,15,20,depends on,CLD-606,Sprint 14
+PRJ-002,Mobile Checkout Revamp,MOB-201,Epic,Mobile Checkout Revamp,In Progress,Burcu Şahin,Highest,2026-06-15,2026-08-25,2026-06-20,2026-09-25,,,,,,
+PRJ-002,Mobile Checkout Revamp,MOB-202,Story,Redesign checkout flow,Done,Elif Koç,High,2026-07-01,2026-08-18,2026-08-18,2026-08-20,48,50,0,,,Sprint 13
+PRJ-002,Mobile Checkout Revamp,MOB-203,Story,Integrate new payment API,Blocked,Okan Çelik,Highest,2026-07-20,2026-08-25,2026-08-18,2026-08-30,56,38,30,depends on,PAY-102,Sprint 14
+PRJ-002,Mobile Checkout Revamp,MOB-204,Task,Update checkout analytics events,In Progress,Elif Koç,Medium,2026-08-02,2026-08-24,2026-08-21,2026-09-03,24,14,12,,,Sprint 14
+PRJ-002,Mobile Checkout Revamp,MOB-205,Bug,Checkout session expiration on Android,Blocked,Okan Çelik,High,2026-08-08,2026-08-25,2026-08-20,2026-08-29,20,18,14,depends on,PAY-104,Sprint 14
+PRJ-002,Mobile Checkout Revamp,MOB-206,Story,Add saved card experience,To Do,Derya Aksoy,Medium,2026-08-10,2026-08-20,2026-08-10,2026-09-12,32,0,32,depends on,PAY-102,Sprint 15
+PRJ-002,Mobile Checkout Revamp,MOB-207,Task,Mobile regression test suite,In Progress,Selin Arslan,High,2026-08-05,2026-08-25,2026-08-23,2026-09-06,36,18,20,depends on,MOB-203,Sprint 14
+PRJ-002,Mobile Checkout Revamp,MOB-208,Story,Checkout feature flag rollout,To Do,Can Aydın,Medium,2026-08-15,2026-08-22,2026-08-15,2026-09-15,16,0,16,depends on,CLD-606,Sprint 15
+PRJ-003,Customer Self-Service Portal,CSP-301,Epic,Customer Self-Service Portal,In Progress,Murat Öztürk,High,2026-05-20,2026-08-25,2026-05-25,2026-10-15,,,,,,
+PRJ-003,Customer Self-Service Portal,CSP-302,Story,Account overview page,Done,Zeynep Tunç,Medium,2026-06-05,2026-07-30,2026-07-30,2026-07-31,40,38,0,,,Sprint 12
+PRJ-003,Customer Self-Service Portal,CSP-303,Story,Invoice history module,Done,Zeynep Tunç,Medium,2026-06-15,2026-08-05,2026-08-05,2026-08-07,36,34,0,,,Sprint 12
+PRJ-003,Customer Self-Service Portal,CSP-304,Story,Profile update workflow,In Review,Kerem Acar,Medium,2026-07-10,2026-08-24,2026-08-23,2026-08-31,32,27,5,,,Sprint 14
+PRJ-003,Customer Self-Service Portal,CSP-305,Task,Accessibility improvements,In Progress,Derya Aksoy,Medium,2026-07-25,2026-08-23,2026-08-19,2026-09-08,24,12,12,,,Sprint 14
+PRJ-003,Customer Self-Service Portal,CSP-306,Bug,Safari layout issue,Done,Kerem Acar,Low,2026-08-01,2026-08-12,2026-08-12,2026-08-15,12,10,0,,,Sprint 13
+PRJ-003,Customer Self-Service Portal,CSP-307,Task,Portal performance test,To Do,Selin Arslan,Medium,2026-08-12,2026-08-20,2026-08-12,2026-09-18,20,0,20,,,Sprint 15
+PRJ-003,Customer Self-Service Portal,CSP-308,Story,Notification preferences,In Progress,Zeynep Tunç,Low,2026-08-10,2026-08-24,2026-08-20,2026-09-20,28,10,18,,,Sprint 14
+PRJ-004,AI Recommendation Engine,AIR-401,Epic,AI Recommendation Engine,In Progress,Gökhan Erdem,Highest,2026-06-10,2026-08-25,2026-06-15,2026-10-10,,,,,,
+PRJ-004,AI Recommendation Engine,AIR-402,Story,Build feature engineering pipeline,Blocked,Deniz Korkmaz,High,2026-07-12,2026-08-25,2026-08-21,2026-09-04,48,30,26,depends on,DAT-503,Sprint 14
+PRJ-004,AI Recommendation Engine,AIR-403,Task,Train baseline recommendation model,In Progress,Bora Yalçın,High,2026-07-25,2026-08-24,2026-08-18,2026-09-12,60,36,30,depends on,AIR-402,Sprint 14
+PRJ-004,AI Recommendation Engine,AIR-404,Task,Offline evaluation framework,In Progress,Bora Yalçın,Medium,2026-08-01,2026-08-23,2026-08-19,2026-09-15,32,14,18,,,Sprint 14
+PRJ-004,AI Recommendation Engine,AIR-405,Story,Recommendation API service,To Do,Mehmet Kaya,High,2026-08-05,2026-08-21,2026-08-05,2026-09-20,40,0,40,depends on,DAT-505,Sprint 15
+PRJ-004,AI Recommendation Engine,AIR-406,Task,Bias and quality review,To Do,Ece Yılmaz,Medium,2026-08-12,2026-08-20,2026-08-12,2026-09-25,24,0,24,,,Sprint 15
+PRJ-004,AI Recommendation Engine,AIR-407,Bug,Training dataset schema mismatch,Blocked,Deniz Korkmaz,Highest,2026-08-18,2026-08-25,2026-08-22,2026-08-28,20,12,16,depends on,DAT-504,Sprint 14
+PRJ-004,AI Recommendation Engine,AIR-408,Task,Production model monitoring design,To Do,Can Aydın,Medium,2026-08-20,2026-08-22,2026-08-20,2026-09-30,24,0,24,depends on,CLD-606,Sprint 15
+PRJ-005,Data Platform Migration,DAT-501,Epic,Data Platform Migration,In Progress,Seda Karaca,Highest,2026-05-15,2026-08-25,2026-05-20,2026-09-20,,,,,,
+PRJ-005,Data Platform Migration,DAT-502,Task,Provision target data environment,Done,Can Aydın,High,2026-05-25,2026-07-05,2026-07-05,2026-07-10,40,44,0,depends on,CLD-602,Sprint 11
+PRJ-005,Data Platform Migration,DAT-503,Story,Migrate customer feature tables,Blocked,Deniz Korkmaz,Highest,2026-06-20,2026-08-25,2026-08-15,2026-08-31,72,68,34,depends on,DAT-504,Sprint 14
+PRJ-005,Data Platform Migration,DAT-504,Bug,Resolve source-to-target schema conflicts,In Progress,Seda Karaca,Highest,2026-07-15,2026-08-25,2026-08-20,2026-08-29,40,36,20,,,Sprint 14
+PRJ-005,Data Platform Migration,DAT-505,Story,Publish curated recommendation dataset,To Do,Deniz Korkmaz,High,2026-07-28,2026-08-22,2026-07-28,2026-09-05,48,0,48,depends on,DAT-503,Sprint 15
+PRJ-005,Data Platform Migration,DAT-506,Task,Historical data reconciliation,In Progress,Seda Karaca,Medium,2026-07-30,2026-08-24,2026-08-19,2026-09-10,56,32,30,,,Sprint 14
+PRJ-005,Data Platform Migration,DAT-507,Task,Data quality validation,To Do,Selin Arslan,High,2026-08-10,2026-08-20,2026-08-10,2026-09-12,32,0,32,depends on,DAT-503,Sprint 15
+PRJ-005,Data Platform Migration,DAT-508,Task,Migration cutover rehearsal,To Do,Can Aydın,High,2026-08-15,2026-08-22,2026-08-15,2026-09-15,28,0,28,depends on,CLD-604,Sprint 15
+PRJ-006,Cloud Infrastructure Upgrade,CLD-601,Epic,Cloud Infrastructure Upgrade,In Progress,Can Aydın,Highest,2026-05-01,2026-08-25,2026-05-05,2026-09-05,,,,,,
+PRJ-006,Cloud Infrastructure Upgrade,CLD-602,Task,Create production Kubernetes cluster,Done,Can Aydın,Highest,2026-05-10,2026-07-02,2026-07-02,2026-07-05,64,70,0,,,Sprint 11
+PRJ-006,Cloud Infrastructure Upgrade,CLD-603,Task,Network segmentation update,In Review,Hakan Uslu,High,2026-06-10,2026-08-24,2026-08-22,2026-08-30,40,34,6,,,Sprint 14
+PRJ-006,Cloud Infrastructure Upgrade,CLD-604,Task,Migration cutover network routing,Blocked,Hakan Uslu,Highest,2026-07-18,2026-08-25,2026-08-14,2026-08-27,32,30,18,depends on,IAM-705,Sprint 14
+PRJ-006,Cloud Infrastructure Upgrade,CLD-605,Task,Payment production gateway configuration,Blocked,Can Aydın,Highest,2026-07-25,2026-08-25,2026-08-16,2026-08-26,28,26,16,depends on,IAM-706,Sprint 14
+PRJ-006,Cloud Infrastructure Upgrade,CLD-606,Task,Observability platform rollout,In Progress,Can Aydın,High,2026-07-28,2026-08-24,2026-08-18,2026-09-02,48,30,22,,,Sprint 14
+PRJ-006,Cloud Infrastructure Upgrade,CLD-607,Task,Disaster recovery validation,To Do,Hakan Uslu,High,2026-08-05,2026-08-20,2026-08-05,2026-09-04,32,0,32,,,Sprint 15
+PRJ-006,Cloud Infrastructure Upgrade,CLD-608,Bug,Intermittent service discovery failure,In Progress,Can Aydın,High,2026-08-17,2026-08-25,2026-08-21,2026-08-29,24,18,12,,,Sprint 14
+PRJ-007,Identity & Access Security Upgrade,IAM-701,Epic,Identity & Access Security Upgrade,In Progress,Aslı Güner,Highest,2026-05-10,2026-08-25,2026-05-15,2026-09-15,,,,,,
+PRJ-007,Identity & Access Security Upgrade,IAM-702,Story,Implement privileged access controls,Done,Aslı Güner,Highest,2026-05-20,2026-07-20,2026-07-20,2026-07-22,56,52,0,,,Sprint 12
+PRJ-007,Identity & Access Security Upgrade,IAM-703,Task,Rotate service account credentials,Done,Hakan Uslu,High,2026-06-15,2026-08-01,2026-08-01,2026-08-03,32,30,0,,,Sprint 12
+PRJ-007,Identity & Access Security Upgrade,IAM-704,Story,Enforce MFA for admin users,In Review,Aslı Güner,Highest,2026-07-05,2026-08-24,2026-08-22,2026-08-28,40,34,6,,,Sprint 14
+PRJ-007,Identity & Access Security Upgrade,IAM-705,Task,Approve network security policy,Blocked,Aslı Güner,Highest,2026-07-25,2026-08-25,2026-08-22,2026-08-27,20,14,10,,,Sprint 14
+PRJ-007,Identity & Access Security Upgrade,IAM-706,Task,Payment gateway security approval,In Review,Aslı Güner,Highest,2026-08-01,2026-08-25,2026-08-23,2026-08-26,24,20,4,,,Sprint 14
+PRJ-007,Identity & Access Security Upgrade,IAM-707,Task,Security regression testing,To Do,Selin Arslan,High,2026-08-08,2026-08-20,2026-08-08,2026-09-05,28,0,28,depends on,IAM-704,Sprint 15
+PRJ-007,Identity & Access Security Upgrade,IAM-708,Task,Audit evidence package,In Progress,Aslı Güner,Medium,2026-08-10,2026-08-24,2026-08-20,2026-09-08,24,12,12,,,Sprint 14
+PRJ-008,CRM Integration Program,CRM-801,Epic,CRM Integration Program,In Progress,Murat Öztürk,Highest,2026-06-01,2026-08-25,2026-06-05,2026-10-05,,,,,,
+PRJ-008,CRM Integration Program,CRM-802,Story,Customer profile synchronization API,In Progress,Mehmet Kaya,High,2026-06-20,2026-08-24,2026-08-18,2026-09-05,48,34,20,depends on,CLD-606,Sprint 14
+PRJ-008,CRM Integration Program,CRM-803,Story,Order history synchronization,Blocked,Ayşe Demir,Highest,2026-07-01,2026-08-25,2026-08-18,2026-08-31,44,40,22,depends on,CLD-605,Sprint 14
+PRJ-008,CRM Integration Program,CRM-804,Task,CRM integration test environment,Blocked,Can Aydın,High,2026-07-15,2026-08-25,2026-08-19,2026-08-30,36,30,20,depends on,CLD-604,Sprint 14
+PRJ-008,CRM Integration Program,CRM-805,Bug,Duplicate customer record mapping,In Progress,Kerem Acar,High,2026-08-02,2026-08-25,2026-08-21,2026-09-02,24,20,12,,,Sprint 14
+PRJ-008,CRM Integration Program,CRM-806,Story,Consent preference synchronization,To Do,Derya Aksoy,Medium,2026-08-08,2026-08-20,2026-08-08,2026-09-12,32,0,32,depends on,IAM-704,Sprint 15
+PRJ-008,CRM Integration Program,CRM-807,Task,End-to-end integration regression,To Do,Selin Arslan,High,2026-08-12,2026-08-20,2026-08-12,2026-09-18,40,0,40,depends on,CRM-803,Sprint 15
+PRJ-008,CRM Integration Program,CRM-808,Story,CRM monitoring and alerting,In Progress,Can Aydın,Medium,2026-08-15,2026-08-24,2026-08-20,2026-09-20,28,10,18,depends on,CLD-606,Sprint 14
