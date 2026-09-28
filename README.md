@@ -198,11 +198,11 @@ The policy was iteratively refined during development to reduce unsupported assu
 
 ## Data Validation
 
-The repository also includes Python validation scripts used to check the consistency of the prototype data.
+The repository also includes a Python validation script used to check the consistency of the prototype data.
 
-These scripts support data-quality checks before portfolio analysis is performed.
+This script supports data-quality checks before portfolio analysis is performed.
 
-They are separate from the Agent's decision policy.
+It is separate from the Agent's decision policy.
 
 ---
 
@@ -232,7 +232,7 @@ The prototype was developed using **Hermes and VS Code** with an agentic develop
 
 The data model, decision rules, risk logic, guardrails, reporting behavior, and test scenarios were defined and refined through natural-language instructions and iterative testing.
 
-Python scripts were also used for prototype data validation.
+A Python script was also used for prototype data validation.
 
 The development process included reviewing Agent outputs against the underlying source data and refining the policy when unsupported assumptions or inconsistencies were identified.
 
@@ -273,7 +273,6 @@ ai-delivery-agent/
 ├── project_people.csv
 ├── kpi.csv
 ├── validate_data.py
-├── validate_data2.py
 └── README.md
 ```
 
@@ -477,11 +476,11 @@ Politika, geliştirme sırasında desteklenmeyen varsayımları azaltmak ve sonu
 
 ## Veri Doğrulama
 
-Repository'de prototip verilerinin tutarlılığını kontrol etmek amacıyla kullanılan Python validation scriptleri de bulunmaktadır.
+Repository'de prototip verilerinin tutarlılığını kontrol etmek amacıyla kullanılan bir Python validation scripti de bulunmaktadır.
 
-Bu scriptler portföy analizi öncesinde veri kalitesinin kontrol edilmesini destekler.
+Bu script portföy analizi öncesinde veri kalitesinin kontrol edilmesini destekler.
 
-Validation scriptleri Agent'ın karar politikasından ayrı bir katmandır.
+Validation scripti Agent'ın karar politikasından ayrı bir katmandır.
 
 ---
 
@@ -511,7 +510,7 @@ Prototip **Hermes ve VS Code** kullanılarak agentic development yaklaşımıyla
 
 Veri modeli, karar kuralları, risk mantığı, guardrail'ler, raporlama davranışı ve test senaryoları doğal dil üzerinden tanımlanmış ve iteratif testlerle geliştirilmiştir.
 
-Python scriptleri prototip verilerinin doğrulanmasında da kullanılmıştır.
+Bir Python scripti prototip verilerinin doğrulanmasında da kullanılmıştır.
 
 Geliştirme sürecinde Agent çıktıları kaynak verilerle karşılaştırılmış; desteklenmeyen varsayımlar veya tutarsızlıklar tespit edildiğinde karar politikası geliştirilmiştir.
 
@@ -552,7 +551,6 @@ ai-delivery-agent/
 ├── project_people.csv
 ├── kpi.csv
 ├── validate_data.py
-├── validate_data2.py
 └── README.md
 ```
 
