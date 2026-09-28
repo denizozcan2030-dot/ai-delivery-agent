@@ -2,7 +2,7 @@
 
 **AI-Assisted Portfolio Risk Analysis & Decision Support**
 
-[English](#english) | [Türkçe](#türkçe)
+[English](#english) | [Türkçe](#türkçe) | [View Demo](DEMO.md)
 
 ---
 
